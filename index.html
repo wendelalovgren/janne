@@ -1,1454 +1,1000 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Janne – Sveriges smartaste kattsand. Hälsoövervakande kiselsand som levereras hem varje månad och varnar när din katt behöver hjälp.">
-    <meta name="theme-color" content="#000000">
- 
-    <meta property="og:title" content="Janne – Sveriges smartaste kattsand">
-    <meta property="og:description" content="Hälsoövervakande kattsand som levereras hem. Sanden byter färg om något inte stämmer med din katts hälsa.">
-    <meta property="og:image" content="https://janne.se/og-image.png">
-    <meta property="og:type" content="website">
- 
-    <title>Janne – Sveriges smartaste kattsand</title>
- 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
- 
-    <!-- Facebook Pixel -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'XXXXXXXXXXXX');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=XXXXXXXXXXXX&ev=PageView&noscript=1" /></noscript>
- 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
- 
-        html {
-            scroll-behavior: smooth;
-        }
- 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fff;
-            color: #000;
-            line-height: 1.6;
-        }
- 
-        /* MARQUEE BAR */
-        .marquee-bar {
-            background-color: #000;
-            color: #fff;
-            padding: 12px 0;
-            overflow: hidden;
-            font-size: 14px;
-            font-weight: 600;
-        }
- 
-        .marquee-content {
-            display: flex;
-            animation: scroll 60s linear infinite;
-            white-space: nowrap;
-            gap: 40px;
-        }
- 
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
- 
-        .marquee-content span {
-            flex-shrink: 0;
-        }
- 
-        /* STICKY NAV */
-        nav {
-            position: sticky;
-            top: 0;
-            background-color: #fff;
-            border-bottom: 1px solid #000;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
- 
-        .logo {
-            font-size: 18px;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
- 
-        .logo-jan {
-            color: #000;
-        }
- 
-        .logo-ne {
-            color: #2563EB;
-        }
- 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-            list-style: none;
-        }
- 
-        .nav-links a {
-            text-decoration: none;
-            color: #000;
-            font-weight: 600;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
- 
-        .nav-links a:hover {
-            color: #2563EB;
-        }
- 
-        .nav-btn {
-            background-color: #2563EB;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
- 
-        .nav-btn:hover {
-            background-color: #1d4ed8;
-        }
- 
-        /* HERO SECTION */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            padding: 80px 24px;
-            max-width: 1400px;
-            margin: 0 auto;
-            align-items: center;
-        }
- 
-        .hero-left label {
-            display: block;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            color: #000;
-        }
- 
-        .hero-heading {
-            font-size: clamp(36px, 8vw, 72px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
- 
-        .accent-blue {
-            color: #2563EB;
-        }
- 
-        .hero-subtext {
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 32px;
-            color: #000;
-        }
- 
-        .email-form {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
- 
-        .email-form input {
-            flex: 1;
-            padding: 14px 16px;
-            border: 1px solid #000;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-        }
- 
-        .email-form button {
-            background-color: #000;
-            color: #fff;
-            padding: 14px 24px;
-            border: none;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-family: 'Inter', sans-serif;
-            white-space: nowrap;
-        }
- 
-        .email-form button:hover {
-            background-color: #2563EB;
-        }
- 
-        .hero-benefits {
-            font-size: 13px;
-            font-weight: 600;
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
- 
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
- 
-        /* STATS GRID */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
- 
-        .stat-card {
-            border: 1px solid #000;
-            padding: 32px 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
- 
-        .stat-number {
-            font-size: 36px;
-            font-weight: 900;
-            color: #2563EB;
-            margin-bottom: 8px;
-        }
- 
-        .stat-label {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
- 
-        .stat-description {
-            font-size: 13px;
-            line-height: 1.5;
-        }
- 
-        /* SECTION LABEL & HEADING */
-        .section-label {
-            display: block;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            color: #000;
-        }
- 
-        .section-heading {
-            font-size: clamp(32px, 7vw, 64px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
- 
-        .section-subtext {
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 48px;
-            color: #000;
-        }
- 
-        /* HOW IT WORKS */
-        .how-it-works {
-            padding: 80px 24px;
-            max-width: 1400px;
-            margin: 0 auto;
-            border-top: 1px solid #000;
-        }
- 
-        .how-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
- 
-        .how-card {
-            border: 1px solid #000;
-            padding: 32px 24px;
-            display: flex;
-            flex-direction: column;
-        }
- 
-        .how-card-number {
-            font-size: 32px;
-            font-weight: 900;
-            color: #2563EB;
-            margin-bottom: 16px;
-        }
- 
-        .how-card-icon {
-            font-size: 32px;
-            margin-bottom: 16px;
-        }
- 
-        .how-card-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
- 
-        .how-card-text {
-            font-size: 14px;
-            line-height: 1.6;
-        }
- 
-        /* COLOR GUIDE */
-        .color-guide {
-            padding: 80px 24px;
-            max-width: 1400px;
-            margin: 0 auto;
-            border-top: 1px solid #000;
-        }
- 
-        .color-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
- 
-        .color-card {
-            border: 1px solid #000;
-            padding: 32px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
- 
-        .color-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 24px;
-            border: 2px solid #000;
-        }
- 
-        .color-circle.green {
-            background-color: #22c55e;
-        }
- 
-        .color-circle.blue {
-            background-color: #3b82f6;
-        }
- 
-        .color-circle.orange {
-            background-color: #f97316;
-        }
- 
-        .color-circle.red {
-            background-color: #ef4444;
-        }
- 
-        .color-card-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
- 
-        .color-card-status {
-            font-size: 14px;
-            font-weight: 600;
-            color: #2563EB;
-            margin-bottom: 12px;
-        }
- 
-        .color-card-text {
-            font-size: 13px;
-            line-height: 1.6;
-        }
- 
-        /* FOUNDER STORY */
-        .founder-story {
-            padding: 80px 24px;
-            max-width: 1400px;
-            margin: 0 auto;
-            border-top: 1px solid #000;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
- 
-        .story-content label {
-            display: block;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-        }
- 
-        .story-heading {
-            font-size: clamp(32px, 7vw, 64px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 32px;
-        }
- 
-        .story-text {
-            font-size: 15px;
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
- 
-        .story-quote {
-            border-left: 4px solid #2563EB;
-            padding: 24px;
-            margin: 32px 0;
-            background-color: #f8f8f8;
-            font-style: italic;
-            font-size: 15px;
-            line-height: 1.7;
-        }
- 
-        .story-facts {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 32px;
-        }
- 
-        .fact-box {
-            border: 1px solid #000;
-            padding: 24px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
- 
-        .fact-box strong {
-            display: block;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
- 
-        .story-image {
-            background-color: #e5e5e5;
-            aspect-ratio: 1;
-            border: 1px solid #000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 32px;
-        }
- 
-        .story-image-text {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
- 
-        .story-image-caption {
-            background-color: #000;
-            color: #fff;
-            padding: 12px;
-            font-size: 13px;
-            font-weight: 600;
-        }
- 
-        /* PRODUCTS */
-        .products {
-            padding: 80px 24px;
-            max-width: 1400px;
-            margin: 0 auto;
-            border-top: 1px solid #000;
-        }
- 
-        .product-section {
-            margin-bottom: 80px;
-            padding-top: 48px;
-            border-top: 2px solid #000;
-        }
- 
-        .product-step-label {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #fff;
-            background: #000;
-            padding: 6px 14px;
-            margin-bottom: 24px;
-        }
- 
-        .product-step-label span {
-            color: #2563EB;
-        }
- 
-        .product-header label {
-            display: block;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-        }
- 
-        .product-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
- 
-        .product-title-bold {
-            font-weight: 900;
-        }
- 
-        .product-subtitle {
-            font-size: 15px;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 16px;
-        }
- 
-        .product-description {
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 32px;
-            max-width: 600px;
-        }
- 
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-bottom: 24px;
-        }
- 
-        .pricing-card {
-            border: 1px solid #000;
-            padding: 32px 24px;
-        }
- 
-        .pricing-card.popular {
-            border: 2px solid #2563EB;
-            position: relative;
-        }
- 
-        .popular-badge {
-            position: absolute;
-            top: -12px;
-            left: 24px;
-            background-color: #2563EB;
-            color: #fff;
-            padding: 6px 12px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
- 
-        .pricing-card-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            margin-top: 8px;
-        }
- 
-        .pricing-card-price {
-            font-size: 28px;
-            font-weight: 900;
-            color: #2563EB;
-            margin-bottom: 24px;
-        }
- 
-        .pricing-card-features {
-            list-style: none;
-            margin-bottom: 32px;
-        }
- 
-        .pricing-card-features li {
-            font-size: 14px;
-            padding: 8px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
- 
-        .pricing-card-features li:last-child {
-            border-bottom: none;
-        }
- 
-        .pricing-card-button {
-            background-color: #2563EB;
-            color: #fff;
-            padding: 14px 24px;
-            border: none;
-            width: 100%;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
- 
-        .pricing-card-button:hover {
-            background-color: #1d4ed8;
-        }
- 
-        .arrow-text {
-            font-size: 14px;
-            font-weight: 600;
-            color: #2563EB;
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid #e5e5e5;
-        }
- 
-        .product-tags {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 24px;
-        }
- 
-        .product-tag {
-            font-size: 13px;
-            font-weight: 600;
-            color: #2563EB;
-        }
- 
-        .product-price-box {
-            border: 1px solid #000;
-            padding: 24px;
-            margin-bottom: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
- 
-        .product-price-box-price {
-            font-size: 24px;
-            font-weight: 900;
-            color: #2563EB;
-        }
- 
-        .product-price-box-button {
-            background-color: #2563EB;
-            color: #fff;
-            padding: 12px 24px;
-            border: none;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
- 
-        .product-price-box-button:hover {
-            background-color: #1d4ed8;
-        }
- 
-        .coming-soon {
-            font-size: 12px;
-            font-weight: 700;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
- 
-        /* FAQ */
-        .faq {
-            padding: 80px 24px;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-top: 1px solid #000;
-        }
- 
-        .faq-heading {
-            font-size: clamp(32px, 7vw, 64px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 48px;
-        }
- 
-        .faq-items {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
- 
-        .faq-item {
-            border-bottom: 1px solid #000;
-            padding: 24px 0;
-        }
- 
-        .faq-question {
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            user-select: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
- 
-        .faq-question:hover {
-            color: #2563EB;
-        }
- 
-        .faq-toggle {
-            font-size: 20px;
-            transition: transform 0.3s;
-        }
- 
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
- 
-        .faq-answer {
-            display: none;
-            font-size: 15px;
-            line-height: 1.7;
-            margin-top: 16px;
-            color: #333;
-        }
- 
-        .faq-item.active .faq-answer {
-            display: block;
-        }
- 
-        /* FOOTER */
-        footer {
-            background-color: #000;
-            color: #fff;
-            padding: 64px 24px 32px;
-            margin-top: 80px;
-            border-top: 1px solid #000;
-        }
- 
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 48px;
-            margin-bottom: 48px;
-        }
- 
-        .footer-col-1 {
-            display: flex;
-            flex-direction: column;
-        }
- 
-        .footer-logo {
-            font-size: 18px;
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin-bottom: 8px;
-        }
- 
-        .footer-tagline {
-            font-size: 14px;
-            color: #aaa;
-        }
- 
-        .footer-col h3 {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-        }
- 
-        .footer-col p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #aaa;
-            margin-bottom: 16px;
-        }
- 
-        .footer-col a {
-            color: #2563EB;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
- 
-        .footer-col a:hover {
-            color: #fff;
-        }
- 
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 32px;
-            text-align: center;
-            font-size: 13px;
-            color: #aaa;
-        }
- 
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 24px;
-        }
- 
-        .modal.active {
-            display: flex;
-        }
- 
-        .modal-content {
-            background-color: #fff;
-            padding: 48px;
-            max-width: 500px;
-            width: 100%;
-            border: 1px solid #000;
-            position: relative;
-        }
- 
-        .modal-close {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            font-weight: 700;
-        }
- 
-        .modal-heading {
-            font-size: 32px;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
- 
-        .modal-subtext {
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 32px;
-            color: #666;
-        }
- 
-        .form-group {
-            margin-bottom: 20px;
-        }
- 
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
- 
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1px solid #000;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            background-color: #fff;
-        }
- 
-        .form-group select {
-            cursor: pointer;
-        }
- 
-        .form-submit {
-            width: 100%;
-            padding: 14px 24px;
-            background-color: #2563EB;
-            color: #fff;
-            border: none;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
- 
-        .form-submit:hover {
-            background-color: #1d4ed8;
-        }
- 
-        .form-success {
-            display: none;
-            text-align: center;
-        }
- 
-        .form-success.active {
-            display: block;
-        }
- 
-        .form-success-heading {
-            font-size: 24px;
-            font-weight: 900;
-            margin-bottom: 16px;
-            color: #22c55e;
-        }
- 
-        .form-success-text {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #333;
-        }
- 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 16px;
-            }
- 
-            .nav-links {
-                flex-direction: column;
-                gap: 16px;
-                width: 100%;
-                text-align: center;
-            }
- 
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 48px 24px;
-                gap: 32px;
-            }
- 
-            .email-form {
-                flex-direction: column;
-            }
- 
-            .founder-story {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
- 
-            .story-facts {
-                grid-template-columns: 1fr;
-            }
- 
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
- 
-            .hero-heading,
-            .section-heading,
-            .story-heading,
-            .faq-heading {
-                font-size: 28px;
-            }
- 
-            .modal-content {
-                padding: 32px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janne Care – Sveriges smartaste kattsand</title>
+  <meta name="description" content="Hälsoövervakande kattsand som byter färg om något inte stämmer. Prenumeration med hemleverans. Lansering 2026." />
+  <meta property="og:title" content="Janne Care – Sveriges smartaste kattsand" />
+  <meta property="og:description" content="Kattsand som fångar upp det du inte ser. Tidig upptäckt, direkt i lådan." />
+  <meta property="og:url" content="https://jannecare.se" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXX');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=XXXXXXXXXXXX&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #4361EE;
+      --blue-dark: #3451D1;
+      --pink: #FF5CA1;
+      --yellow: #FFD600;
+      --navy: #1B1B3A;
+      --white: #FFFFFF;
+      --light: #F7F7FC;
+      --gray: #8B8BA3;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .logo, .stat-num, .step-num {
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .accent {
+      font-family: 'Caveat', cursive;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* MARQUEE */
+    .marquee-bar {
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px 0;
+      overflow: hidden;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 40px;
+      white-space: nowrap;
+      animation: marquee 40s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--light);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .logo { font-weight: 900; font-size: 24px; letter-spacing: -1px; }
+    .logo .pink { color: var(--pink); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-weight: 500; font-size: 14px; }
+    .nav-links a:hover { color: var(--blue); }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      padding: 80px 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .hero h1 {
+      font-weight: 900;
+      font-size: 60px;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .hero h1 .highlight { color: var(--blue); }
+    .hero-tagline {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      color: var(--pink);
+      margin-bottom: 12px;
+    }
+    .hero-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+    .hero-form {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .hero-form input {
+      flex: 1;
+      padding: 14px 18px;
+      border: 2px solid var(--light);
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .hero-form input:focus { border-color: var(--blue); }
+    .hero-form button {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .hero-form button:hover { opacity: 0.9; }
+    .hero-checks {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .stat-card {
+      background: var(--light);
+      border-radius: 16px;
+      padding: 28px 24px;
+    }
+    .stat-num { font-weight: 900; font-size: 36px; color: var(--blue); }
+    .stat-label { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+    .stat-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+    /* PRODUCT BENEFITS */
+    .benefits {
+      background: var(--light);
+      padding: 64px 32px;
+    }
+    .benefits-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .benefit-card { text-align: center; padding: 20px 16px; }
+    .benefit-card h3 { font-weight: 800; font-size: 16px; margin-bottom: 8px; }
+    .benefit-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+    /* MISSION BANNER */
+    .mission {
+      background: var(--blue);
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .mission h2 { font-weight: 800; font-size: 28px; color: #fff; max-width: 700px; margin: 0 auto; }
+    .mission .accent { font-size: 24px; color: var(--yellow); margin-top: 8px; }
+
+    /* HOW IT WORKS */
+    .how-it-works {
+      padding: 80px 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .how-it-works h2 {
+      font-weight: 900;
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+    .how-it-works h2 .highlight { color: var(--blue); }
+    .how-it-works > p {
+      font-size: 16px;
+      color: var(--gray);
+      margin-bottom: 48px;
+      max-width: 550px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .step-card {
+      background: var(--light);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .step-num { font-weight: 900; font-size: 32px; color: var(--pink); margin-bottom: 12px; }
+    .step-card h3 { font-weight: 800; font-size: 16px; margin-bottom: 10px; }
+    .step-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    /* COLOR GUIDE */
+    .color-guide {
+      background: var(--light);
+      padding: 80px 32px;
+    }
+    .color-guide-inner { max-width: 1300px; margin: 0 auto; }
+    .color-guide h2 { font-weight: 900; font-size: 42px; margin-bottom: 12px; }
+    .color-guide h2 .highlight { color: var(--blue); }
+    .color-guide-desc {
+      font-size: 16px;
+      color: var(--gray);
+      margin-bottom: 48px;
+      max-width: 500px;
+    }
+    .colors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .color-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .color-dot {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+    }
+    .color-card h3 { font-weight: 800; font-size: 18px; margin-bottom: 4px; }
+    .color-card .status { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+    .color-card p { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+    /* FOUNDER STORY */
+    .story {
+      padding: 80px 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .story h2 { font-weight: 900; font-size: 42px; line-height: 1.1; margin-bottom: 32px; }
+    .story h2 .pink { color: var(--pink); }
+    .story p { font-size: 15px; line-height: 1.8; margin-bottom: 20px; }
+    .story-quote {
+      border-left: 4px solid var(--pink);
+      padding: 20px 24px;
+      background: var(--light);
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .story-quote .author { font-style: normal; font-weight: 700; margin-top: 8px; font-size: 13px; }
+    .story-photo {
+      background: var(--light);
+      border-radius: 20px;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+    .story-photo .caption { font-family: 'Caveat', cursive; font-size: 20px; color: var(--gray); margin-bottom: 16px; }
+    .story-photo .tag { background: var(--navy); color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+
+    /* PRODUCTS */
+    .products {
+      background: var(--navy);
+      color: #fff;
+      padding: 80px 32px;
+    }
+    .products-inner { max-width: 1300px; margin: 0 auto; }
+    .products h2 { font-weight: 900; font-size: 42px; margin-bottom: 12px; color: #fff; }
+    .products h2 .highlight { color: var(--yellow); }
+    .products-desc { font-size: 16px; color: var(--gray); margin-bottom: 48px; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .product-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card .step-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--gray); margin-bottom: 8px; }
+    .product-card .product-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 28px; }
+    .product-card .product-sub { font-size: 13px; color: var(--gray); margin-bottom: 16px; }
+    .product-card .product-tagline { font-family: 'Caveat', cursive; font-size: 17px; margin-bottom: 20px; opacity: 0.85; }
+    .product-card .product-features { flex: 1; }
+    .product-card .product-features div { font-size: 14px; padding: 6px 0; color: rgba(255,255,255,0.75); }
+    .product-card .product-price { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; color: var(--blue); margin-top: 20px; margin-bottom: 16px; }
+    .product-card .btn-cta {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .product-card .btn-cta:hover { background: var(--blue-dark); }
+    .product-card .coming-soon { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-top: 10px; text-align: center; }
+
+    /* FAQ */
+    .faq { padding: 80px 32px; max-width: 800px; margin: 0 auto; }
+    .faq h2 { font-weight: 900; font-size: 42px; margin-bottom: 40px; text-align: center; }
+    .faq-item { border-bottom: 1px solid var(--light); padding: 20px 0; }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .faq-arrow {
+      font-size: 20px;
+      color: var(--blue);
+      transition: transform 0.3s;
+    }
+    .faq-arrow.open { transform: rotate(180deg); }
+    .faq-answer {
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--gray);
+      display: none;
+    }
+    .faq-answer.open { display: block; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: #fff;
+      padding: 64px 32px 32px;
+    }
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-logo { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 28px; margin-bottom: 8px; }
+    .footer-logo .pink { color: var(--pink); }
+    .footer-tagline { font-size: 14px; color: var(--gray); }
+    .footer-motto { font-family: 'Caveat', cursive; font-size: 16px; color: var(--yellow); margin-top: 8px; }
+    .footer-heading { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .footer-text { font-size: 14px; line-height: 1.7; color: var(--gray); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray);
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(27,27,58,0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff;
+      padding: 48px;
+      max-width: 480px;
+      width: 100%;
+      border-radius: 20px;
+      position: relative;
+      color: var(--navy);
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--navy);
+    }
+    .modal h2 { font-weight: 900; font-size: 28px; margin-bottom: 8px; }
+    .modal h2 .highlight { color: var(--blue); }
+    .modal .modal-desc { font-size: 15px; color: var(--gray); margin-bottom: 28px; }
+    .modal label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+    .modal .form-group { margin-bottom: 16px; }
+    .modal .form-group:last-of-type { margin-bottom: 24px; }
+    .modal input, .modal select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--light);
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+    .modal input:focus, .modal select:focus { border-color: var(--blue); }
+    .modal .btn-submit {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s;
+    }
+    .modal .btn-submit:hover { background: var(--blue-dark); }
+    .modal .success { text-align: center; padding: 20px 0; }
+    .modal .success .checkmark { font-size: 48px; margin-bottom: 16px; }
+    .modal .success h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 24px; color: #22c55e; margin-bottom: 12px; }
+    .modal .success p { font-size: 15px; color: var(--gray); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; padding: 48px 24px; }
+      .hero h1 { font-size: 42px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .colors-grid { grid-template-columns: repeat(2, 1fr); }
+      .story { grid-template-columns: 1fr; gap: 40px; }
+      .products-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 32px 16px; }
+      .hero h1 { font-size: 32px; }
+      .hero-form { flex-direction: column; }
+      .hero-checks { flex-direction: column; gap: 8px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .colors-grid { grid-template-columns: 1fr 1fr; }
+      .nav { padding: 12px 16px; }
+      .nav-links a { display: none; }
+      .how-it-works, .color-guide, .faq { padding: 48px 16px; }
+      .how-it-works h2, .color-guide h2, .story h2, .products h2, .faq h2 { font-size: 32px; }
+      .modal { padding: 32px 24px; }
+      .section-label { font-size: 10px; }
+      .story { padding: 48px 16px; }
+      .products { padding: 48px 16px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- MARQUEE BAR -->
-    <div class="marquee-bar">
-        <div class="marquee-content">
-            <span>Sveriges smartaste kattsand • Hemleverans varje månad • Sanden varnar när katten behöver hjälp • Fri frakt alltid • Lansering 2026 • Tidig upptäckt räddar liv •</span>
-            <span>Sveriges smartaste kattsand • Hemleverans varje månad • Sanden varnar när katten behöver hjälp • Fri frakt alltid • Lansering 2026 • Tidig upptäckt räddar liv •</span>
-        </div>
+
+  <!-- MARQUEE BAR -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span>Vi bygger framtidens katthälsa. Det börjar i lådan. &nbsp;&bull;&nbsp; Hemleverans varje månad &nbsp;&bull;&nbsp; Fri frakt alltid &nbsp;&bull;&nbsp; Lansering 2026 &nbsp;&bull;&nbsp;</span>
+      <span>Vi bygger framtidens katthälsa. Det börjar i lådan. &nbsp;&bull;&nbsp; Hemleverans varje månad &nbsp;&bull;&nbsp; Fri frakt alltid &nbsp;&bull;&nbsp; Lansering 2026 &nbsp;&bull;&nbsp;</span>
     </div>
- 
-    <!-- STICKY NAV -->
-    <nav>
-        <div class="logo"><span class="logo-jan">JAN</span><span class="logo-ne">NE</span></div>
-        <ul class="nav-links">
-            <li><a href="#story">Vår historia</a></li>
-            <li><a href="#products">Produkter</a></li>
-            <li><button class="nav-btn" onclick="openSignup()">Anmäl intresse</button></li>
-        </ul>
-    </nav>
- 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-left">
-            <label>Sveriges smartaste kattsand</label>
-            <h1 class="hero-heading">SANDEN SER <span class="accent-blue">DET DU MISSAR.</span></h1>
-            <p class="hero-subtext">Katter döljer sjukdom tills det är för sent. Janne är en prenumerationstjänst för hälsoövervakande kattsand – levererad hem varje månad – som byter färg om något inte stämmer med din katts hälsa.</p>
- 
-            <form class="email-form" onsubmit="handleEmailSubmit(event)">
-                <input type="email" placeholder="Din e-post" required>
-                <button type="submit">ANMÄL MIG →</button>
-            </form>
- 
-            <div class="hero-benefits">
-                <div class="benefit-item">Hemleverans ingår</div>
-                <div class="benefit-item">Fri frakt alltid</div>
-                <div class="benefit-item">Lansering 2026</div>
-            </div>
-        </div>
- 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">1,6M</div>
-                <div class="stat-label">Katter i Sverige</div>
-                <div class="stat-description">utan regelbunden hälsoövervakning</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Färger</div>
-                <div class="stat-description">Varje färg berättar något om din katts hälsa</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Hälsomarkörer</div>
-                <div class="stat-description">i Janne Test – svar på 2 minuter hemma</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">24h</div>
-                <div class="stat-label">Till labbsvar</div>
-                <div class="stat-description">med Janne Analys och veterinärkommentar</div>
-            </div>
-        </div>
-    </section>
- 
-    <!-- HOW IT WORKS -->
-    <section class="how-it-works">
-        <label class="section-label">Hur det fungerar</label>
-        <h2 class="section-heading">FYRA STEG. <span class="accent-blue">NOLL KRÅNGEL.</span></h2>
-        <p class="section-subtext">Börja med sanden. Gå djupare om sanden flaggar något. Du behöver aldrig göra mer än situationen kräver.</p>
- 
-        <div class="how-cards">
-            <div class="how-card">
-                <div class="how-card-number">01</div>
-                <div class="how-card-title">VÄLJ PLAN ONLINE</div>
-                <div class="how-card-text">Välj antal katter och beställ. Hela flödet tar under 2 minuter. Ingen butik, inga tunga påsar.</div>
-            </div>
-            <div class="how-card">
-                <div class="how-card-number">02</div>
-                <div class="how-card-title">HEMLEVERANS</div>
-                <div class="how-card-text">Janne Sand levereras direkt till din dörr varje månad. Automatiskt. Du tänker inte på det.</div>
-            </div>
-            <div class="how-card">
-                <div class="how-card-number">03</div>
-                <div class="how-card-title">SANDEN VAKTAR</div>
-                <div class="how-card-text">Kristallerna reagerar på pH och blod i kattens urin dygnet runt. Färgskifte = något avviker.</div>
-            </div>
-            <div class="how-card">
-                <div class="how-card-number">04</div>
-                <div class="how-card-title">AGERA I TID</div>
-                <div class="how-card-text">Testa hemma med Janne Test eller skicka in till lab med Janne Analys. Boka vet med fakta i hand.</div>
-            </div>
-        </div>
-    </section>
- 
-    <!-- COLOR GUIDE -->
-    <section class="color-guide">
-        <label class="section-label">Färgguiden</label>
-        <h2 class="section-heading">VAD BERÄTTAR <span class="accent-blue">SANDEN?</span></h2>
-        <p class="section-subtext">Fyra färger. Varje färg berättar något annat. Du behöver inte vara veterinär för att förstå det.</p>
- 
-        <div class="color-cards">
-            <div class="color-card">
-                <div class="color-circle green"></div>
-                <div class="color-card-title">GRÖN</div>
-                <div class="color-card-status">NORMALT</div>
-                <div class="color-card-text">pH-värde inom normalintervallet. Inga tecken på avvikelse.</div>
-            </div>
-            <div class="color-card">
-                <div class="color-circle blue"></div>
-                <div class="color-card-title">BLÅ</div>
-                <div class="color-card-status">OBSERVERA</div>
-                <div class="color-card-text">Högt pH. Kan indikera urinvägsinfektion eller ökad risk för struvitstenar.</div>
-            </div>
-            <div class="color-card">
-                <div class="color-circle orange"></div>
-                <div class="color-card-title">ORANGE</div>
-                <div class="color-card-status">VARNING</div>
-                <div class="color-card-text">Lågt pH. Kan tyda på njurproblem, metabolisk acidos eller kristallbildning.</div>
-            </div>
-            <div class="color-card">
-                <div class="color-circle red"></div>
-                <div class="color-card-title">RÖD</div>
-                <div class="color-card-status">KONTAKTA VET</div>
-                <div class="color-card-text">Blod i urinen. Kan signalera FLUTD, blåssten eller njurproblem. Agera nu.</div>
-            </div>
-        </div>
-    </section>
- 
-    <!-- FOUNDER STORY -->
-    <section class="founder-story" id="story">
-        <div class="story-content">
-            <label>Varför Janne finns</label>
-            <h2 class="story-heading">DET BÖRJAR MED EN <span class="accent-blue">KATT.</span></h2>
- 
-            <p class="story-text">Min katt Janne var 3 år gammal när jag tog honom på rutinkontroll. Han var social som vanligt, åt som vanligt. Men veterinären sa att han behövde avlivas på grund av kritiskt dåliga njurar.</p>
- 
-            <p class="story-text">Det som hade hänt var att han kissade och drack mer – successivt, gradvis, på ett sätt som är nästan omöjligt att märka när man lever med sin katt varje dag.</p>
- 
-            <p class="story-text">Jag tog en second opinion. Han blev inlagd. Idag, 5 år senare, lever Janne och mår bra.</p>
- 
-            <div class="story-quote">"Det här är produkter som jag önskade hade funnits den dagen." — GRUNDAREN, JANNES MATTE</div>
- 
-            <div class="story-facts">
-                <div class="fact-box">
-                    <strong>KATTER DÖLJER SMÄRTA</strong>
-                    En evolutionär instinkt – svaghet visar sårbarhet. Sjukdom märks ofta först när det är för sent.
-                </div>
-                <div class="fact-box">
-                    <strong>NJURSVIKT – VANLIGASTE DÖDSORSAKEN</strong>
-                    Kronisk njursvikt är obotlig men hanterbar om den upptäcks tidigt. pH-avvikelser syns månader innan symptom.
-                </div>
-            </div>
-        </div>
- 
-        <div class="story-image">
-            <div class="story-image-text">Foto: Grundaren med Janne</div>
-            <div class="story-image-caption">JANNE • 5 år · Kroniskt njursjuk · Fullt aktiv</div>
-        </div>
-    </section>
- 
-    <!-- PRODUCTS -->
-    <section class="products" id="products">
-        <label class="section-label">Produkter</label>
-        <h2 class="section-heading">TRE STEG. <span class="accent-blue">EN TRYGGHET.</span></h2>
-        <p class="section-subtext">Börja med sanden. Fördjupa dig bara om du behöver. Du bestämmer takten.</p>
- 
-        <!-- JANNE SAND -->
-        <div class="product-section">
-            <div class="product-step-label">Steg <span>01</span> — Övervakning</div>
-            <div class="product-header">
-                <div class="product-title"><span class="product-title-bold">JANNE</span> Sand</div>
-                <div class="product-subtitle">Hälsoövervakande kattsand · Prenumeration · Hemleverans</div>
-                <div class="product-subtitle" style="color: #2563EB; font-weight: 700;">179–399 kr per månad</div>
-            </div>
- 
-            <p class="product-description">Hälsoövervakande kiselsand som levereras hem varje månad. Kristallerna reagerar passivt på kattens urin och byter färg vid avvikelse. Du behöver inte göra något – sanden arbetar åt dig.</p>
- 
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <div class="pricing-card-title">EN KATT</div>
-                    <div class="pricing-card-price">179 kr</div>
-                    <div style="font-size: 13px; color: #666; margin-bottom: 24px;">per månad</div>
-                    <ul class="pricing-card-features">
-                        <li>✓ 3,8L hälsosand</li>
-                        <li>✓ Hemleverans ingår</li>
-                        <li>✓ Pausa när du vill</li>
-                    </ul>
-                    <button class="pricing-card-button" onclick="openSignup()">Anmäl intresse</button>
-                </div>
- 
-                <div class="pricing-card popular">
-                    <div class="popular-badge">POPULÄR</div>
-                    <div class="pricing-card-title">TVÅ KATTER</div>
-                    <div class="pricing-card-price">299 kr</div>
-                    <div style="font-size: 13px; color: #666; margin-bottom: 24px;">per månad</div>
-                    <ul class="pricing-card-features">
-                        <li>✓ 7,6L hälsosand</li>
-                        <li>✓ Hemleverans ingår</li>
-                        <li>✓ Pausa när du vill</li>
-                    </ul>
-                    <button class="pricing-card-button" onclick="openSignup()">Anmäl intresse</button>
-                </div>
- 
-                <div class="pricing-card">
-                    <div class="pricing-card-title">FLER KATTER</div>
-                    <div class="pricing-card-price">399 kr</div>
-                    <div style="font-size: 13px; color: #666; margin-bottom: 24px;">per månad</div>
-                    <ul class="pricing-card-features">
-                        <li>✓ 11,4L hälsosand</li>
-                        <li>✓ Hemleverans ingår</li>
-                        <li>✓ Pausa när du vill</li>
-                    </ul>
-                    <button class="pricing-card-button" onclick="openSignup()">Anmäl intresse</button>
-                </div>
-            </div>
- 
-            <div class="arrow-text">↓ Sanden flaggar en färg? Bekräfta med ett test.</div>
-        </div>
- 
-        <!-- JANNE TEST -->
-        <div class="product-section">
-            <div class="product-step-label">Steg <span>02</span> — Bekräftelse</div>
-            <div class="product-header">
-                <div class="product-title"><span class="product-title-bold">JANNE</span> Test</div>
-                <div class="product-subtitle">10 hälsomarkörer · Svar på 2 minuter · Hemmatest</div>
-                <div class="product-subtitle" style="color: #2563EB; font-weight: 700;">329 kr per förpackning</div>
-            </div>
- 
-            <p class="product-description">Testremsor du doppar i kattens urin när sanden flaggat något. Mäter 10 hälsomarkörer – pH, blod, glukos, protein, leukocyter och mer. Svar på 2 minuter, hemma i köket. Inget labb behövs.</p>
- 
-            <div class="product-tags">
-                <div class="product-tag">→ 10 markörer per remsa</div>
-                <div class="product-tag">→ Svar på 2 min</div>
-                <div class="product-tag">→ Hemleverans</div>
-                <div class="product-tag">→ 5 remsor / förp.</div>
-            </div>
- 
-            <div class="product-price-box">
-                <div>
-                    <div class="product-price-box-price">329 kr</div>
-                    <div style="font-size: 13px; color: #666;">5 remsor</div>
-                </div>
-                <button class="product-price-box-button" onclick="openSignup()">ANMÄL INTRESSE</button>
-                <div class="coming-soon">KOMMER VID LANSERING</div>
-            </div>
- 
-            <div class="arrow-text">↓ Testet visar avvikelse? Skicka in för fullständig analys.</div>
-        </div>
- 
-        <!-- JANNE ANALYS -->
-        <div class="product-section">
-            <div class="product-step-label">Steg <span>03</span> — Fullständig analys</div>
-            <div class="product-header">
-                <div class="product-title"><span class="product-title-bold">JANNE</span> Analys</div>
-                <div class="product-subtitle">Fullständig urinalys · Labbsvar inom 24h · Veterinärkommentar</div>
-                <div class="product-subtitle" style="color: #2563EB; font-weight: 700;">899 kr inkl. frakt & svar</div>
-            </div>
- 
-            <p class="product-description">Komplett provkit levereras hem. Samla urin med medföljande hydrofob sand, skicka in med förbetalt porto. Fullständigt labbsvar inom 24 timmar med veterinärkommentar – så du kan boka veterinär med faktaunderlag i handen.</p>
- 
-            <div class="product-tags">
-                <div class="product-tag">→ 15+ parametrar</div>
-                <div class="product-tag">→ Provkit hem</div>
-                <div class="product-tag">→ Porto t/r ingår</div>
-                <div class="product-tag">→ Svar inom 24h</div>
-                <div class="product-tag">→ Veterinärkommentar</div>
-            </div>
- 
-            <div class="product-price-box">
-                <div>
-                    <div class="product-price-box-price">899 kr</div>
-                    <div style="font-size: 13px; color: #666;">inkl. allt</div>
-                </div>
-                <button class="product-price-box-button" onclick="openSignup()">ANMÄL INTRESSE</button>
-                <div class="coming-soon">KOMMER VID LANSERING</div>
-            </div>
-        </div>
-    </section>
- 
-    <!-- FAQ -->
-    <section class="faq">
-        <h2 class="faq-heading">VANLIGA FRÅGOR</h2>
- 
-        <div class="faq-items">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Fungerar Janne Sand i alla kattlådor?</span>
-                    <span class="faq-toggle">↓</span>
-                </div>
-                <div class="faq-answer">Ja! Janne Sand är vanlig kiselsand som fungerar i alla typer av kattlådor. Du byter ut din nuvarande sand mot Janne Sand, så sköter den resten.</div>
-            </div>
- 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Hur vet jag om sanden bytt färg?</span>
-                    <span class="faq-toggle">↓</span>
-                </div>
-                <div class="faq-answer">Färgförändringen syns tydligt i sanden efter att katten använt lådan. Du kollar helt enkelt vid byte eller daglig skötsel – precis som vanligt.</div>
-            </div>
- 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Är sanden säker för min katt?</span>
-                    <span class="faq-toggle">↓</span>
-                </div>
-                <div class="faq-answer">Absolut. Janne Sand är giftfri kiselsand som inte skadar katten vid kontakt eller förtäring. Kristallerna är helt passiva och reagerar bara på urin.</div>
-            </div>
- 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Kan jag pausa min prenumeration?</span>
-                    <span class="faq-toggle">↓</span>
-                </div>
-                <div class="faq-answer">Ja, du kan pausa eller avbryta när du vill – ingen bindningstid. Du hanterar allt via ditt konto.</div>
-            </div>
- 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Vad händer om testet visar avvikelse?</span>
-                    <span class="faq-toggle">↓</span>
-                </div>
-                <div class="faq-answer">Vid avvikelse rekommenderar vi att du bekräftar med Janne Test (hemmatest) eller beställer Janne Analys (labbtest med veterinärkommentar). Resultaten ger dig fakta att ta med till veterinären.</div>
-            </div>
- 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>När lanseras Janne?</span>
-                    <span class="faq-toggle">↓</span>
-                </div>
-                <div class="faq-answer">Vi planerar lansering under 2026. Anmäl dig för att vara bland de första och få 20% rabatt på första månaden.</div>
-            </div>
-        </div>
-    </section>
- 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col-1">
-                <div class="footer-logo"><span style="color: #fff;">JAN</span><span style="color: #2563EB;">NE</span></div>
-                <div class="footer-tagline">Sveriges smartaste kattsand</div>
-            </div>
- 
-            <div class="footer-col">
-                <h3>Om Janne</h3>
-                <p>Grundat av en kattägare som önskade dessa produkter funnits när Janne fick sin njurdiagnos. Lansering 2026.</p>
-                <a href="mailto:kontakt@janne.se">kontakt@janne.se</a>
-            </div>
- 
-            <div class="footer-col">
-                <h3>Förhandsanmälan</h3>
-                <p>Anmäl intresse för att få 20% rabatt på första månaden och vara bland de första att prova Janne Sand.</p>
-                <button class="nav-btn" onclick="openSignup()" style="width: 100%; margin-top: 16px;">Anmäl intresse</button>
-            </div>
-        </div>
- 
-        <div class="footer-bottom">
-            © 2026 Janne AB | Lansering 2026 · Fri frakt alltid
-        </div>
-    </footer>
- 
-    <!-- SIGNUP MODAL -->
-    <div class="modal" id="signupModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeSignup()">×</button>
- 
-            <div id="signupForm">
-                <h2 class="modal-heading">Anmäl dig. <span class="accent-blue">Gratis.</span></h2>
-                <p class="modal-subtext">Vi lanserar 2026. Anmäl dig nu och få 20% rabatt på första månaden.</p>
- 
-                <form onsubmit="handleSignupSubmit(event)">
-                    <div class="form-group">
-                        <label>Ditt namn</label>
-                        <input type="text" name="name" required>
-                    </div>
- 
-                    <div class="form-group">
-                        <label>Din e-post</label>
-                        <input type="email" name="email" required>
-                    </div>
- 
-                    <div class="form-group">
-                        <label>Hur många katter har du?</label>
-                        <select name="cats" required>
-                            <option value="">Välj...</option>
-                            <option value="1">1 katt</option>
-                            <option value="2">2 katter</option>
-                            <option value="3+">3 eller fler</option>
-                        </select>
-                    </div>
- 
-                    <button type="submit" class="form-submit">Anmäl mig — 20% på första månaden</button>
-                </form>
-            </div>
- 
-            <div id="signupSuccess" class="form-success">
-                <div class="form-success-heading">✓ Du är med!</div>
-                <p class="form-success-text">Vi hör av oss inför lansering 2026.</p>
-            </div>
-        </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">
+      <span>J</span><span class="pink">a</span><span>nne</span>
     </div>
- 
-    <script>
-        function openSignup() {
-            document.getElementById('signupModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+    <div class="nav-links">
+      <a href="#story">Vår historia</a>
+      <a href="#products">Produkter</a>
+      <button class="btn-primary" onclick="openSignup()">Anmäl intresse</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-tagline">Sveriges smartaste kattsand</div>
+      <h1>Kattsand som fångar upp <span class="highlight">det du inte ser.</span></h1>
+      <p class="hero-subtitle">Tidig upptäckt. Direkt i lådan.</p>
+      <p class="hero-desc">Janne är en prenumerationstjänst för hälsoövervakande kattsand som levereras hem varje månad. Sanden byter färg om något inte stämmer med din katts hälsa, så att du kan agera innan det blir akut.</p>
+
+      <form class="hero-form" onsubmit="handleEmailSubmit(event)">
+        <input type="email" id="heroEmail" placeholder="Din e-post" required />
+        <button type="submit">ANMÄL MIG →</button>
+      </form>
+
+      <div class="hero-checks">
+        <span>✓ Hemleverans ingår</span>
+        <span>✓ Fri frakt alltid</span>
+        <span>✓ Lansering 2026</span>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">1,6M</div>
+        <div class="stat-label">Katter i Sverige</div>
+        <div class="stat-desc">utan regelbunden hälsoövervakning</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Färger</div>
+        <div class="stat-desc">Varje färg berättar något om din katts hälsa</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Hälsomarkörer</div>
+        <div class="stat-desc">i Janne Test, svar på 2 minuter hemma</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Till labbsvar</div>
+        <div class="stat-desc">med Janne Analys och veterinärkommentar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT BENEFITS -->
+  <section class="benefits">
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <h3>Minimerar lukt</h3>
+        <p>Kiselsand absorberar och binder luktmolekyler effektivt. Hemmet förblir fräscht längre.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Låg dammhalt</h3>
+        <p>Skonsamt för både katter och ägare med känsliga luftvägar.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Lång hållbarhet</h3>
+        <p>En påse räcker längre än traditionell klumpsand. Mindre att släpa, mindre att slänga.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>EU-certifierad</h3>
+        <p>Alla indikatorer är giftfria och REACH-godkända för den europeiska marknaden.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION BANNER -->
+  <section class="mission">
+    <h2>Vi bygger framtidens katthälsa.</h2>
+    <div class="accent">Det börjar i lådan.</div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="section-label">Hur det fungerar</div>
+    <h2>Fyra steg. <span class="highlight">Noll krångel.</span></h2>
+    <p>Börja med sanden. Gå djupare om sanden flaggar något.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Välj plan online</h3>
+        <p>Välj antal katter och beställ. Under 2 minuter.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Hemleverans</h3>
+        <p>Janne Sand levereras till din dörr varje månad. Automatiskt.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Sanden håller koll</h3>
+        <p>Kristallerna reagerar på pH och blod i urinen. Färgskifte = dags att kolla upp.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Agera i tid</h3>
+        <p>Testa hemma eller skicka till lab. Boka vet med fakta i hand.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR GUIDE -->
+  <section class="color-guide">
+    <div class="color-guide-inner">
+      <div class="section-label">Färgguiden</div>
+      <h2>Vad berättar <span class="highlight">sanden?</span></h2>
+      <p class="color-guide-desc">Fyra färger som hjälper dig fånga upp avvikelser tidigt, så att veterinären får rätt information i tid.</p>
+
+      <div class="colors-grid">
+        <div class="color-card">
+          <div class="color-dot" style="background: #22c55e;"></div>
+          <h3>Grön</h3>
+          <div class="status">Allt lugnt</div>
+          <p>Urinen ligger inom normalt pH-intervall. Inga tecken på avvikelse.</p>
+        </div>
+        <div class="color-card">
+          <div class="color-dot" style="background: #3b82f6;"></div>
+          <h3>Blå</h3>
+          <div class="status">Högt pH</div>
+          <p>Kan tyda på urinvägsinfektion eller ökad risk för kristallbildning i urinvägarna.</p>
+        </div>
+        <div class="color-card">
+          <div class="color-dot" style="background: #f97316;"></div>
+          <h3>Orange</h3>
+          <div class="status">Lågt pH</div>
+          <p>Kan tyda på njurpåverkan eller ämnesomsättningsrubbning. Vissa typer av urinstenar bildas lättare vid lågt pH.</p>
+        </div>
+        <div class="color-card">
+          <div class="color-dot" style="background: #ef4444;"></div>
+          <h3>Röd</h3>
+          <div class="status">Blod i urinen</div>
+          <p>Kan bero på urinvägsproblem, njursten, inflammation eller blåssjukdom. Kontakta veterinär.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER STORY -->
+  <section id="story" class="story">
+    <div>
+      <div class="section-label">Varför Janne finns</div>
+      <h2>Det börjar med en <span class="pink">katt.</span></h2>
+      <p>Janne var 3 år gammal när hans matte tog honom på rutinkontroll. Han var social som vanligt, åt som vanligt. Men veterinären sa att han behövde avlivas på grund av kritiskt dåliga njurar.</p>
+      <p>Han hade kissat och druckit mer, successivt och gradvis, på ett sätt som är nästan omöjligt att märka när man lever med sin katt varje dag.</p>
+      <p style="margin-bottom: 28px;">Grundaren tog en second opinion. Janne blev inlagd. Idag, 5 år senare, lever han och mår bra. Det var den upplevelsen som startade allt.</p>
+
+      <div class="story-quote">
+        "Det här är produkter som jag önskade hade funnits den dagen."
+        <div class="author">Grundaren, Jannes matte</div>
+      </div>
+    </div>
+
+    <div class="story-photo">
+      <div class="caption">Foto: Grundaren med Janne</div>
+      <div class="tag">JANNE &bull; 5 år &middot; Kroniskt njursjuk &middot; Fullt aktiv</div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products">
+    <div class="products-inner">
+      <div class="section-label">Produkter</div>
+      <h2>Tre steg. <span class="highlight">En trygghet.</span></h2>
+      <p class="products-desc">Börja med sanden. Fördjupa dig bara om du behöver.</p>
+
+      <div class="products-grid">
+        <!-- Sand -->
+        <div class="product-card">
+          <div class="step-label">Steg 01</div>
+          <div class="product-name"><span>Janne </span><span style="color: var(--blue);">Sand</span></div>
+          <div class="product-sub">pH-reaktiv kattsand</div>
+          <div class="product-tagline" style="color: var(--yellow);">Kisset berättar mer än du tror</div>
+          <div class="product-features">
+            <div>✓ Hälsoövervakande kiselsand</div>
+            <div>✓ Hemleverans varje månad</div>
+            <div>✓ Pausa när du vill</div>
+          </div>
+          <div class="product-price">179–399 kr/mån</div>
+          <button class="btn-cta" onclick="openSignup()">Anmäl intresse</button>
+        </div>
+
+        <!-- Test -->
+        <div class="product-card">
+          <div class="step-label">Steg 02</div>
+          <div class="product-name"><span>Janne </span><span style="color: var(--pink);">Test</span></div>
+          <div class="product-sub">Urintest i hemmet</div>
+          <div class="product-tagline" style="color: #fff;">6 markörer. 60 sekunder. Noll stress.</div>
+          <div class="product-features">
+            <div>✓ 10 hälsomarkörer</div>
+            <div>✓ Svar på 2 minuter</div>
+            <div>✓ 5 remsor per förpackning</div>
+          </div>
+          <div class="product-price">329 kr</div>
+          <button class="btn-cta" onclick="openSignup()">Anmäl intresse</button>
+          <div class="coming-soon">Kommer vid lansering</div>
+        </div>
+
+        <!-- Analys -->
+        <div class="product-card">
+          <div class="step-label">Steg 03</div>
+          <div class="product-name"><span>Janne </span><span style="color: var(--gray);">Analys</span></div>
+          <div class="product-sub">Labbanalys med veterinärsvar</div>
+          <div class="product-tagline" style="color: var(--yellow);">Hela bilden. Med veterinärens kommentar.</div>
+          <div class="product-features">
+            <div>✓ 15+ parametrar</div>
+            <div>✓ Svar inom 24h</div>
+            <div>✓ Veterinärkommentar ingår</div>
+          </div>
+          <div class="product-price">899 kr</div>
+          <button class="btn-cta" onclick="openSignup()">Anmäl intresse</button>
+          <div class="coming-soon">Kommer vid lansering</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>Vanliga frågor</h2>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(0)">
+        <span>Fungerar Janne Sand i alla kattlådor?</span>
+        <span class="faq-arrow" id="faqArrow0">↓</span>
+      </div>
+      <div class="faq-answer" id="faqAnswer0">Ja! Janne Sand är vanlig kiselsand som fungerar i alla typer av kattlådor. Byt ut din nuvarande sand, så sköter Janne resten.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(1)">
+        <span>Hur vet jag om sanden bytt färg?</span>
+        <span class="faq-arrow" id="faqArrow1">↓</span>
+      </div>
+      <div class="faq-answer" id="faqAnswer1">Färgförändringen syns tydligt efter att katten använt lådan. Du kollar vid byte eller daglig skötsel, precis som vanligt.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(2)">
+        <span>Är sanden säker för min katt?</span>
+        <span class="faq-arrow" id="faqArrow2">↓</span>
+      </div>
+      <div class="faq-answer" id="faqAnswer2">Absolut. Janne Sand är giftfri kiselsand som inte skadar katten. Kristallerna är helt passiva och reagerar bara på urin.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(3)">
+        <span>Kan jag pausa min prenumeration?</span>
+        <span class="faq-arrow" id="faqArrow3">↓</span>
+      </div>
+      <div class="faq-answer" id="faqAnswer3">Självklart. Pausa eller avbryt när du vill, ingen bindningstid.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(4)">
+        <span>När lanseras Janne?</span>
+        <span class="faq-arrow" id="faqArrow4">↓</span>
+      </div>
+      <div class="faq-answer" id="faqAnswer4">Vi planerar lansering 2026. Anmäl dig för att vara bland de första och få 20% rabatt.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">J<span class="pink">a</span>nne</div>
+        <div class="footer-tagline">Sveriges smartaste kattsand</div>
+        <div class="footer-motto">Vi bygger framtidens katthälsa.</div>
+      </div>
+      <div>
+        <div class="footer-heading">Om Janne</div>
+        <p class="footer-text">Grundat av en kattägare som önskade dessa produkter funnits. Döpt efter katten Janne. Lansering 2026.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Förhandsanmälan</div>
+        <p class="footer-text" style="margin-bottom: 16px;">Var bland de första. Få 20% rabatt på första månaden.</p>
+        <button class="btn-cta" onclick="openSignup()" style="background: var(--blue); color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; width: 100%;">Anmäl intresse</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Janne Care &middot; Lansering 2026 &middot; Fri frakt alltid
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="signupModal" onclick="handleOverlayClick(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeSignup()">&times;</button>
+
+      <div id="modalForm">
+        <h2>Anmäl dig. <span class="highlight">Gratis.</span></h2>
+        <p class="modal-desc">Vi lanserar 2026. Anmäl dig nu och få 20% rabatt på första månaden.</p>
+        <form onsubmit="handleSignupSubmit(event)">
+          <div class="form-group">
+            <label for="signupName">Ditt namn</label>
+            <input type="text" id="signupName" required />
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Din e-post</label>
+            <input type="email" id="signupEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="signupCats">Hur många katter har du?</label>
+            <select id="signupCats" required>
+              <option value="">Välj...</option>
+              <option value="1">1 katt</option>
+              <option value="2">2 katter</option>
+              <option value="3+">3 eller fler</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit">Anmäl mig, 20% på första månaden</button>
+        </form>
+      </div>
+
+      <div id="modalSuccess" class="success" style="display: none;">
+        <div class="checkmark">✓</div>
+        <h3>Du är med!</h3>
+        <p>Vi hör av oss inför lansering 2026.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Google Sheets endpoint
+    var SHEET_URL = 'https://script.google.com/macros/s/AKfycbysnXrXELp4p4WWaY6RnA_74HaN1GKsNUlXqsqRyOU81lJghegdXfeoI5EyPCvo6YC9ZQ/exec';
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
- 
-        function closeSignup() {
-            document.getElementById('signupModal').classList.remove('active');
-            document.getElementById('signupForm').style.display = 'block';
-            document.getElementById('signupSuccess').classList.remove('active');
-            document.body.style.overflow = 'auto';
+      });
+    });
+
+    // FAQ toggle
+    var currentFaq = null;
+    function toggleFaq(index) {
+      if (currentFaq === index) {
+        document.getElementById('faqAnswer' + index).classList.remove('open');
+        document.getElementById('faqArrow' + index).classList.remove('open');
+        currentFaq = null;
+      } else {
+        if (currentFaq !== null) {
+          document.getElementById('faqAnswer' + currentFaq).classList.remove('open');
+          document.getElementById('faqArrow' + currentFaq).classList.remove('open');
         }
- 
-        function handleEmailSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
- 
-            const email = form.querySelector('input[type="email"]').value;
- 
-            // Submit to Google Sheets
-            fetch('https://script.google.com/macros/s/AKfycbysnXrXELp4p4WWaY6RnA_74HaN1GKsNUlXqsqRyOU81lJghegdXfeoI5EyPCvo6YC9ZQ/exec', {
-                method: 'POST',
-                body: JSON.stringify({ email: email }),
-                mode: 'no-cors'
-            }).then(() => {
-                form.reset();
-                alert('Tack! Vi hör av oss inför lansering 2026.');
-            });
-        }
- 
-        function handleSignupSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
- 
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                cats: formData.get('cats')
-            };
- 
-            // Submit to Google Sheets
-            fetch('https://script.google.com/macros/s/AKfycbysnXrXELp4p4WWaY6RnA_74HaN1GKsNUlXqsqRyOU81lJghegdXfeoI5EyPCvo6YC9ZQ/exec', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                mode: 'no-cors'
-            }).then(() => {
-                document.getElementById('signupForm').style.display = 'none';
-                document.getElementById('signupSuccess').classList.add('active');
- 
-                setTimeout(() => {
-                    closeSignup();
-                }, 3000);
-            });
-        }
- 
-        function toggleFaq(element) {
-            element.closest('.faq-item').classList.toggle('active');
-        }
- 
-        // Close modal when clicking outside
-        document.getElementById('signupModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closeSignup();
-            }
-        });
-    </script>
+        document.getElementById('faqAnswer' + index).classList.add('open');
+        document.getElementById('faqArrow' + index).classList.add('open');
+        currentFaq = index;
+      }
+    }
+
+    // Modal
+    function openSignup() {
+      document.getElementById('signupModal').classList.add('open');
+      document.getElementById('modalForm').style.display = 'block';
+      document.getElementById('modalSuccess').style.display = 'none';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSignup() {
+      document.getElementById('signupModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === e.currentTarget) {
+        closeSignup();
+      }
+    }
+
+    // Hero email submit
+    function handleEmailSubmit(e) {
+      e.preventDefault();
+      var email = document.getElementById('heroEmail').value;
+      if (!email) return;
+
+      var data = new FormData();
+      data.append('email', email);
+      data.append('source', 'hero');
+
+      fetch(SHEET_URL, {
+        method: 'POST',
+        body: data
+      }).then(function() {
+        document.getElementById('heroEmail').value = '';
+        openSignup();
+        document.getElementById('signupEmail').value = email;
+      }).catch(function(err) {
+        console.error('Error:', err);
+        openSignup();
+        document.getElementById('signupEmail').value = email;
+      });
+    }
+
+    // Modal signup submit
+    function handleSignupSubmit(e) {
+      e.preventDefault();
+      var name = document.getElementById('signupName').value;
+      var email = document.getElementById('signupEmail').value;
+      var cats = document.getElementById('signupCats').value;
+
+      if (!name || !email || !cats) return;
+
+      var data = new FormData();
+      data.append('name', name);
+      data.append('email', email);
+      data.append('cats', cats);
+      data.append('source', 'modal');
+
+      fetch(SHEET_URL, {
+        method: 'POST',
+        body: data
+      }).then(function() {
+        showSuccess();
+      }).catch(function(err) {
+        console.error('Error:', err);
+        showSuccess();
+      });
+    }
+
+    function showSuccess() {
+      document.getElementById('modalForm').style.display = 'none';
+      document.getElementById('modalSuccess').style.display = 'block';
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
+    }
+  </script>
+
 </body>
 </html>
