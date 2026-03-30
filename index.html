@@ -941,7 +941,7 @@
       var email = document.getElementById('heroEmail').value;
       if (!email) return;
 
-      var data = new FormData();
+      var data = new URLSearchParams();
       data.append('email', email);
       data.append('source', 'hero');
 
@@ -969,7 +969,7 @@
 
       if (!name || !email || !cats) return;
 
-      var data = new FormData();
+      var data = new URLSearchParams();
       data.append('name', name);
       data.append('email', email);
       data.append('cats', cats);
