@@ -947,6 +947,7 @@
 
       fetch(SHEET_URL, {
         method: 'POST',
+        mode: 'no-cors',
         body: data
       }).then(function() {
         document.getElementById('heroEmail').value = '';
@@ -976,6 +977,7 @@
 
       fetch(SHEET_URL, {
         method: 'POST',
+        mode: 'no-cors',
         body: data
       }).then(function() {
         showSuccess();
