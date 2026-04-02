@@ -12,7 +12,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -28,10 +27,8 @@
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1491920815834768&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
-
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
       --blue: #4361EE;
       --blue-dark: #3451D1;
@@ -42,7 +39,6 @@
       --light: #F7F7FC;
       --gray: #8B8BA3;
     }
-
     body {
       font-family: 'DM Sans', sans-serif;
       color: var(--navy);
@@ -50,17 +46,13 @@
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
-
     h1, h2, h3, .logo, .stat-num, .step-num {
       font-family: 'Nunito', sans-serif;
     }
-
     .accent {
       font-family: 'Caveat', cursive;
     }
-
     a { text-decoration: none; color: inherit; }
-
     /* MARQUEE */
     .marquee-bar {
       background: var(--navy);
@@ -80,7 +72,6 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-
     /* NAV */
     .nav {
       position: sticky;
@@ -113,7 +104,6 @@
       transition: background 0.2s;
     }
     .btn-primary:hover { background: var(--blue-dark); }
-
     /* HERO */
     .hero {
       display: grid;
@@ -149,36 +139,26 @@
       margin-bottom: 32px;
       max-width: 520px;
     }
-    .hero-form {
+    .hero-cta {
       display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
     }
-    .hero-form input {
-      flex: 1;
-      padding: 14px 18px;
-      border: 2px solid var(--light);
-      border-radius: 12px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .hero-form input:focus { border-color: var(--blue); }
-    .hero-form button {
+    .hero-cta .btn-hero {
       background: var(--navy);
       color: #fff;
-      padding: 14px 28px;
+      padding: 16px 36px;
       border: none;
       border-radius: 12px;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 16px;
       cursor: pointer;
       font-family: 'DM Sans', sans-serif;
       white-space: nowrap;
       transition: opacity 0.2s;
     }
-    .hero-form button:hover { opacity: 0.9; }
+    .hero-cta .btn-hero:hover { opacity: 0.9; }
     .hero-checks {
       display: flex;
       gap: 20px;
@@ -199,7 +179,6 @@
     .stat-num { font-weight: 900; font-size: 36px; color: var(--blue); }
     .stat-label { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
     .stat-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
-
     /* PRODUCT BENEFITS */
     .benefits {
       background: var(--light);
@@ -215,7 +194,6 @@
     .benefit-card { text-align: center; padding: 20px 16px; }
     .benefit-card h3 { font-weight: 800; font-size: 16px; margin-bottom: 8px; }
     .benefit-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
-
     /* MISSION BANNER */
     .mission {
       background: var(--blue);
@@ -224,7 +202,6 @@
     }
     .mission h2 { font-weight: 800; font-size: 28px; color: #fff; max-width: 700px; margin: 0 auto; }
     .mission .accent { font-size: 24px; color: var(--yellow); margin-top: 8px; }
-
     /* HOW IT WORKS */
     .how-it-works {
       padding: 80px 32px;
@@ -264,7 +241,6 @@
     .step-num { font-weight: 900; font-size: 32px; color: var(--pink); margin-bottom: 12px; }
     .step-card h3 { font-weight: 800; font-size: 16px; margin-bottom: 10px; }
     .step-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
-
     /* COLOR GUIDE */
     .color-guide {
       background: var(--light);
@@ -300,7 +276,6 @@
     .color-card h3 { font-weight: 800; font-size: 18px; margin-bottom: 4px; }
     .color-card .status { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
     .color-card p { font-size: 13px; color: var(--gray); line-height: 1.5; }
-
     /* FOUNDER STORY */
     .story {
       padding: 80px 32px;
@@ -336,7 +311,6 @@
     }
     .story-photo .caption { font-family: 'Caveat', cursive; font-size: 20px; color: var(--gray); margin-bottom: 16px; }
     .story-photo .tag { background: var(--navy); color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; }
-
     /* PRODUCTS */
     .products {
       background: var(--navy);
@@ -382,7 +356,6 @@
     }
     .product-card .btn-cta:hover { background: var(--blue-dark); }
     .product-card .coming-soon { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-top: 10px; text-align: center; }
-
     /* FAQ */
     .faq { padding: 80px 32px; max-width: 800px; margin: 0 auto; }
     .faq h2 { font-weight: 900; font-size: 42px; margin-bottom: 40px; text-align: center; }
@@ -409,7 +382,6 @@
       display: none;
     }
     .faq-answer.open { display: block; }
-
     /* FOOTER */
     footer {
       background: var(--navy);
@@ -438,7 +410,6 @@
       max-width: 1300px;
       margin: 0 auto;
     }
-
     /* MODAL */
     .modal-overlay {
       position: fixed;
@@ -504,11 +475,11 @@
       transition: background 0.2s;
     }
     .modal .btn-submit:hover { background: var(--blue-dark); }
+    .modal .btn-submit:disabled { background: var(--gray); cursor: not-allowed; }
     .modal .success { text-align: center; padding: 20px 0; }
     .modal .success .checkmark { font-size: 48px; margin-bottom: 16px; }
     .modal .success h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 24px; color: #22c55e; margin-bottom: 12px; }
     .modal .success p { font-size: 15px; color: var(--gray); }
-
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; padding: 48px 24px; }
@@ -524,7 +495,6 @@
     @media (max-width: 640px) {
       .hero { padding: 32px 16px; }
       .hero h1 { font-size: 32px; }
-      .hero-form { flex-direction: column; }
       .hero-checks { flex-direction: column; gap: 8px; }
       .benefits-grid { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr; }
@@ -541,7 +511,6 @@
   </style>
 </head>
 <body>
-
   <!-- MARQUEE BAR -->
   <div class="marquee-bar">
     <div class="marquee-track">
@@ -549,19 +518,17 @@
       <span>Vi bygger framtidens katthälsa. Det börjar i lådan. &nbsp;&bull;&nbsp; Hemleverans varje månad &nbsp;&bull;&nbsp; Alltid fri frakt &nbsp;&bull;&nbsp; Lansering 2026 &nbsp;&bull;&nbsp;</span>
     </div>
   </div>
-
   <!-- NAV -->
   <nav class="nav">
-    <div class="logo">
+    <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
       <span>J</span><span class="pink">a</span><span>nne</span>
-    </div>
+    </a>
     <div class="nav-links">
       <a href="#story">Vår historia</a>
       <a href="#products">Produkter</a>
       <button class="btn-primary" onclick="openSignup()">Anmäl intresse</button>
     </div>
   </nav>
-
   <!-- HERO -->
   <section class="hero">
     <div>
@@ -569,19 +536,15 @@
       <h1>Kattsand som fångar upp <span class="highlight">det du inte ser.</span></h1>
       <p class="hero-subtitle">Tidig upptäckt. Direkt i lådan.</p>
       <p class="hero-desc">Janne är en prenumerationstjänst för hälsoövervakande kattsand som levereras hem varje månad. Sanden byter färg om något inte stämmer med din katts hälsa, så att du kan agera innan det blir akut.</p>
-
-      <form class="hero-form" onsubmit="handleEmailSubmit(event)">
-        <input type="email" id="heroEmail" placeholder="Din e-post" required />
-        <button type="submit">ANMÄL MIG →</button>
-      </form>
-
-      <div class="hero-checks">
-        <span>✓ Hemleverans ingår</span>
-        <span>✓ Alltid fri frakt </span>
-        <span>✓ Lansering 2026</span>
+      <div class="hero-cta">
+        <button class="btn-hero" onclick="openSignup()">ANMÄL INTRESSE →</button>
+        <div class="hero-checks">
+          <span>✓ Hemleverans ingår</span>
+          <span>✓ Alltid fri frakt</span>
+          <span>✓ Lansering 2026</span>
+        </div>
       </div>
     </div>
-
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-num">1,6M</div>
@@ -605,7 +568,6 @@
       </div>
     </div>
   </section>
-
   <!-- PRODUCT BENEFITS -->
   <section class="benefits">
     <div class="benefits-grid">
@@ -627,19 +589,16 @@
       </div>
     </div>
   </section>
-
   <!-- MISSION BANNER -->
   <section class="mission">
     <h2>Vi bygger framtidens katthälsa.</h2>
     <div class="accent">Det börjar i lådan.</div>
   </section>
-
   <!-- HOW IT WORKS -->
   <section class="how-it-works">
     <div class="section-label">Hur det fungerar</div>
     <h2>Fyra steg. <span class="highlight">Noll krångel.</span></h2>
     <p>Börja med sanden. Gå djupare om sanden flaggar något.</p>
-
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">01</div>
@@ -663,14 +622,12 @@
       </div>
     </div>
   </section>
-
   <!-- COLOR GUIDE -->
   <section class="color-guide">
     <div class="color-guide-inner">
       <div class="section-label">Färgguiden</div>
       <h2>Vad berättar <span class="highlight">sanden?</span></h2>
       <p class="color-guide-desc">Fyra färger som hjälper dig fånga upp avvikelser tidigt, så att veterinären får rätt information i tid.</p>
-
       <div class="colors-grid">
         <div class="color-card">
           <div class="color-dot" style="background: #22c55e;"></div>
@@ -699,7 +656,6 @@
       </div>
     </div>
   </section>
-
   <!-- FOUNDER STORY -->
   <section id="story" class="story">
     <div>
@@ -708,26 +664,22 @@
       <p>Janne var 3 år gammal när hans matte tog honom på rutinkontroll. Han var social som vanligt, åt som vanligt. Men veterinären sa att han behövde avlivas på grund av kritiskt dåliga njurar.</p>
       <p>Han hade kissat och druckit mer, successivt och gradvis, på ett sätt som är nästan omöjligt att märka när man lever med sin katt varje dag.</p>
       <p style="margin-bottom: 28px;">Grundaren tog en second opinion. Janne blev inlagd. Idag, 5 år senare, lever han och mår bra. Det var den upplevelsen som startade allt.</p>
-
       <div class="story-quote">
         "Det här är produkter som jag önskade hade funnits den dagen."
         <div class="author">Grundaren, Jannes matte</div>
       </div>
     </div>
-
     <div class="story-photo">
       <div class="caption">Foto: Grundaren med Janne</div>
       <div class="tag">JANNE &bull; 5 år &middot; Kroniskt njursjuk &middot; Fullt aktiv</div>
     </div>
   </section>
-
   <!-- PRODUCTS -->
   <section id="products" class="products">
     <div class="products-inner">
       <div class="section-label">Produkter</div>
       <h2>Tre steg. <span class="highlight">En trygghet.</span></h2>
       <p class="products-desc">Börja med sanden. Fördjupa dig bara om du behöver.</p>
-
       <div class="products-grid">
         <!-- Sand -->
         <div class="product-card">
@@ -740,25 +692,23 @@
             <div>✓ Hemleverans varje månad</div>
             <div>✓ Pausa när du vill</div>
           </div>
-          <div class="product-price">179–399 kr/mån</div>
+          <div class="product-price">229 kr/mån</div>
           <button class="btn-cta" onclick="openSignup()">Anmäl intresse</button>
         </div>
-
         <!-- Test -->
         <div class="product-card">
           <div class="step-label">Steg 02</div>
           <div class="product-name"><span>Janne </span><span style="color: var(--pink);">Test</span></div>
           <div class="product-sub">Urintest i hemmet</div>
-          <div class="product-tagline" style="color: #fff;">6 markörer. 60 sekunder. Noll stress.</div>
+          <div class="product-tagline" style="color: #fff;">10+ markörer. 2 minuter. Noll stress.</div>
           <div class="product-features">
-            <div>✓ 10 hälsomarkörer</div>
+            <div>✓ 10+ hälsomarkörer</div>
             <div>✓ Svar på 2 minuter</div>
             <div>✓ 5 remsor per förpackning</div>
           </div>
           <div class="product-price">329 kr</div>
           <button class="btn-cta" onclick="openSignup()">Anmäl intresse</button>
         </div>
-
         <!-- Analys -->
         <div class="product-card">
           <div class="step-label">Steg 03</div>
@@ -776,11 +726,9 @@
       </div>
     </div>
   </section>
-
   <!-- FAQ -->
   <section class="faq">
     <h2>Vanliga frågor</h2>
-
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(0)">
         <span>Fungerar Janne Sand i alla kattlådor?</span>
@@ -788,7 +736,6 @@
       </div>
       <div class="faq-answer" id="faqAnswer0">Ja! Janne Sand är vanlig kiselsand som fungerar i alla typer av kattlådor. Byt ut din nuvarande sand, så sköter Janne resten.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(1)">
         <span>Hur vet jag om sanden bytt färg?</span>
@@ -796,7 +743,6 @@
       </div>
       <div class="faq-answer" id="faqAnswer1">Färgförändringen syns tydligt efter att katten använt lådan. Du kollar vid byte eller daglig skötsel, precis som vanligt.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(2)">
         <span>Är sanden säker för min katt?</span>
@@ -804,7 +750,6 @@
       </div>
       <div class="faq-answer" id="faqAnswer2">Absolut. Janne Sand är giftfri kiselsand som inte skadar katten. Kristallerna är helt passiva och reagerar bara på urin.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(3)">
         <span>Kan jag pausa min prenumeration?</span>
@@ -812,7 +757,6 @@
       </div>
       <div class="faq-answer" id="faqAnswer3">Självklart. Pausa eller avbryt när du vill, ingen bindningstid.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(4)">
         <span>När lanseras Janne?</span>
@@ -821,7 +765,6 @@
       <div class="faq-answer" id="faqAnswer4">Vi planerar lansering 2026. Anmäl dig för att vara bland de första och få 20% rabatt.</div>
     </div>
   </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
@@ -844,12 +787,10 @@
       &copy; 2026 Janne Care &middot; Lansering 2026 &middot; Alltid fri frakt
     </div>
   </footer>
-
   <!-- MODAL -->
   <div class="modal-overlay" id="signupModal" onclick="handleOverlayClick(event)">
     <div class="modal">
       <button class="modal-close" onclick="closeSignup()">&times;</button>
-
       <div id="modalForm">
         <h2>Anmäl dig. <span class="highlight">Gratis.</span></h2>
         <p class="modal-desc">Vi lanserar 2026. Anmäl dig nu och få 20% rabatt på första månaden.</p>
@@ -874,7 +815,6 @@
           <button type="submit" class="btn-submit">Anmäl mig, 20% på första månaden</button>
         </form>
       </div>
-
       <div id="modalSuccess" class="success" style="display: none;">
         <div class="checkmark">✓</div>
         <h3>Du är med!</h3>
@@ -882,11 +822,9 @@
       </div>
     </div>
   </div>
-
   <script>
     // Google Sheets endpoint
     var SHEET_URL = 'https://script.google.com/macros/s/AKfycbysnXrXELp4p4WWaY6RnA_74HaN1GKsNUlXqsqRyOU81lJghegdXfeoI5EyPCvo6YC9ZQ/exec';
-
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
@@ -897,7 +835,6 @@
         }
       });
     });
-
     // FAQ toggle
     var currentFaq = null;
     function toggleFaq(index) {
@@ -915,66 +852,46 @@
         currentFaq = index;
       }
     }
-
     // Modal
     function openSignup() {
       document.getElementById('signupModal').classList.add('open');
       document.getElementById('modalForm').style.display = 'block';
       document.getElementById('modalSuccess').style.display = 'none';
+      // Reset form and button state
+      var form = document.querySelector('#modalForm form');
+      if (form) form.reset();
+      var btn = document.querySelector('#modalForm .btn-submit');
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'Anmäl mig, 20% på första månaden';
+      }
       document.body.style.overflow = 'hidden';
     }
-
     function closeSignup() {
       document.getElementById('signupModal').classList.remove('open');
       document.body.style.overflow = '';
     }
-
     function handleOverlayClick(e) {
       if (e.target === e.currentTarget) {
         closeSignup();
       }
     }
-
-    // Hero email submit
-    function handleEmailSubmit(e) {
-      e.preventDefault();
-      var email = document.getElementById('heroEmail').value;
-      if (!email) return;
-
-      var data = new URLSearchParams();
-      data.append('email', email);
-      data.append('source', 'hero');
-
-      fetch(SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: data
-      }).then(function() {
-        document.getElementById('heroEmail').value = '';
-        openSignup();
-        document.getElementById('signupEmail').value = email;
-      }).catch(function(err) {
-        console.error('Error:', err);
-        openSignup();
-        document.getElementById('signupEmail').value = email;
-      });
-    }
-
-    // Modal signup submit
+    // Modal signup submit with double-click protection
     function handleSignupSubmit(e) {
       e.preventDefault();
       var name = document.getElementById('signupName').value;
       var email = document.getElementById('signupEmail').value;
       var cats = document.getElementById('signupCats').value;
-
       if (!name || !email || !cats) return;
-
+      // Disable button immediately to prevent double submissions
+      var btn = e.target.querySelector('.btn-submit');
+      btn.disabled = true;
+      btn.textContent = 'Skickar...';
       var data = new URLSearchParams();
       data.append('name', name);
       data.append('email', email);
       data.append('cats', cats);
       data.append('source', 'modal');
-
       fetch(SHEET_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -986,7 +903,6 @@
         showSuccess();
       });
     }
-
     function showSuccess() {
       document.getElementById('modalForm').style.display = 'none';
       document.getElementById('modalSuccess').style.display = 'block';
@@ -995,6 +911,5 @@
       }
     }
   </script>
-
 </body>
 </html>
